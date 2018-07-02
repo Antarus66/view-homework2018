@@ -66,4 +66,4 @@
     php artisan dusk
     ```
 
-- см. https://laravel.com/docs/5.4/dusk
+- см. https://laravel.com/docs/master/dusk
