@@ -41,6 +41,7 @@
     - http://www.php-fig.org/psr/psr-2/
     -https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md
 - Приветствуется (но не обязательно) использование Bootstrap или другого front-end фреймворка для добавления стилей.
+- Очень приветствуется добавление возможностей по редактированию, добавлению или удалению валют.
 
 ## Запуск тестов
 1. Создайте APP_URL в .env
