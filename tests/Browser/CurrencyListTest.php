@@ -37,21 +37,24 @@ class CurrencyListTest extends DuskTestCase
             $browser->visit('/currencies')
                 ->assertSee('Bitcoin')
                 ->clickLink('Bitcoin')
-                ->assertPathIs('/currencies/1');
+                ->assertPathIs('/currencies/1')
+                ->assertSee('The currency page');
         });
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/currencies')
                 ->assertSee('Dogecoin')
-                ->clickLink('Dogecoin')
-                ->assertPathIs('/currencies/2');
+                ->clickLink('Bitcoin')
+                ->assertPathIs('/currencies/2')
+                ->assertSee('The currency page');
         });
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/currencies')
                 ->assertSee('Litecoin')
                 ->clickLink('Litecoin')
-                ->assertPathIs('/currencies/3');
+                ->assertPathIs('/currencies/3')
+                ->assertSee('The currency page');
         });
     }
 }
