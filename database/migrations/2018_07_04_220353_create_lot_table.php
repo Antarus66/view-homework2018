@@ -15,7 +15,8 @@ class CreateLotTable extends Migration
     {
         Schema::create('lot', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('price'); // dollars
+            $table->integer('currency_id');
+            $table->double('price'); // dollars
             $table->dateTime('opens_at');
             $table->dateTime('close_at');
         });
