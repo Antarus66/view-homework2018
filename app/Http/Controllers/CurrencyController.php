@@ -31,5 +31,11 @@ class CurrencyController extends Controller
     public function show($id)
     {
         $currency = Currency::get($id);
+        $lots = $currency->lots();
+
+        return view('currency', [
+            'currency' => $currency,
+            'lots' => $lots,
+        ]);
     }
 }

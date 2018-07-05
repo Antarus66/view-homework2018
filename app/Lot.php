@@ -14,4 +14,10 @@ class Lot extends Model
         'id',
         'currency_id',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\Currency');
+    }
 }

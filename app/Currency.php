@@ -14,4 +14,9 @@ class Currency extends Model
         'id',
         'title',
     ];
+
+    public function lots()
+    {
+        return $this->hasMany('App\Lot');
+    }
 }
