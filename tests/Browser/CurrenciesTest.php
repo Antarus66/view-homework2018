@@ -63,4 +63,29 @@ class CurrenciesTest extends DuskTestCase
                 ->assertSee('88');
         });
     }
+
+    public function testLotsAreClickable() {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/currencies')
+                ->assertSee('Bitcoin')
+                ->clickLink('Bitcoin')
+                ->click('6631')
+                ->assertSee('6631')
+                ->assertPathIs('/lots/1');
+
+            $browser->visit('/currencies')
+                ->assertSee('Dogecoin')
+                ->clickLink('Dogecoin')
+                ->click('0.0027')
+                ->assertSee('0.0027')
+                ->assertPathIs('/lots/5');
+
+            $browser->visit('/currencies')
+                ->assertSee('Litecoin')
+                ->clickLink('Litecoin')
+                ->click('88')
+                ->assertSee('88')
+                ->assertPathIs('/lots/9');
+        });
+    }
 }
