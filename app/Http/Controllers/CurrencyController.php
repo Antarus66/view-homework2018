@@ -14,6 +14,7 @@ class CurrencyController extends Controller
      */
     public function index()
     {
+        // пусть сами имплементят это функционал
         $currencies = Currency::all();
 
         return view('currency-market', [
@@ -30,7 +31,8 @@ class CurrencyController extends Controller
      */
     public function show($id)
     {
-        $currency = Currency::get($id);
+        // пусть сами имплементят это функционал
+        $currency = Currency::find($id);
         $lots = $currency->lots;
 
         return view('currency', [

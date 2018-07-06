@@ -13,11 +13,14 @@ class Lot extends Model
     protected $fillable = [
         'id',
         'currency_id',
+        'price',
+        'opens_at',
+        'close_at'
     ];
 
 
-    public function user()
+    public function currency()
     {
-        return $this->belongsTo('App\Currency');
+        return $this->belongsTo(Currency::class);
     }
 }
