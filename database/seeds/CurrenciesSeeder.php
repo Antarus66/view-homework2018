@@ -1,30 +1,30 @@
 <?php
 
-use App\Extensions\Faker\Dental;
+use App\Currency;
 use Illuminate\Database\Seeder;
-use Faker\Generator;
-use App\Entities\Goal;
 
 class CurrenciesSeeder extends Seeder
 {
-    private $faker;
-    private $timestamps;
-
-    private $currenciesData = [
+    const DATA = [
         [
-            'title' => 'Bitcoin'
-        ], [
-            'title' => 'Dogecoin'
-        ], [
-            'title' => 'Litecoin'
+            'title' => 'Bitcoin',
+            'short_name' => 'btc',
+            'logo_url' => 'https://s2.coinmarketcap.com/static/img/coins/32x32/1831.png',
+            'price' => 725.55
+        ],
+        [
+            'title' => 'Ethereum',
+            'short_name' => 'eth',
+            'logo_url' => 'https://s2.coinmarketcap.com/static/img/coins/32x32/1027.png',
+            'price' => 454.03
+        ],
+        [
+            'title' => 'XRP',
+            'short_name' => 'xrp',
+            'logo_url' => 'https://s2.coinmarketcap.com/static/img/coins/32x32/52.png',
+            'price' => 0.455
         ]
     ];
-
-    public function __construct(Generator $faker)
-    {
-        $this->faker = $faker;;
-        $this->timestamps = $this->generateTimestamps();
-    }
 
     /**
      * Run the database seeds.
@@ -33,32 +33,6 @@ class CurrenciesSeeder extends Seeder
      */
     public function run()
     {
-        array_map(function ($currency) {
-            \App\Currency::create($currency);
-        }, $this->currenciesData);
-    }
-
-    private function generateTimestamps()
-    {
-        $timePatterns = [
-            "P1Y",    // 1 year
-            "P6M",    // 6 month
-            "P1M",    // 1 month
-            "P1W",    // 1 week
-            "P1D",    // 1 day
-        ];
-
-        $timestamps = array_map(function($pattern){
-            $delta = new DateInterval($pattern);
-            $seconds = ($delta->s)
-                + ($delta->i * 60)
-                + ($delta->h * 60 * 60)
-                + ($delta->d * 60 * 60 * 24)
-                + ($delta->m * 60 * 60 * 24 * 30)
-                + ($delta->y * 60 * 60 * 24 * 365);
-            return $seconds;
-        }, $timePatterns);
-
-        return $timestamps;
+        Currency::query()->insert(self::DATA);
     }
 }

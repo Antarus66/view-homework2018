@@ -8,15 +8,11 @@ class Currency extends Model
 {
     protected $table = 'currency';
 
-    public $timestamps = false;
-
     protected $fillable = [
         'id',
         'title',
+        'short_name',
+        'logo_url',
+        'price'
     ];
-
-    public function lots()
-    {
-        return $this->hasMany(Lot::class);
-    }
 }

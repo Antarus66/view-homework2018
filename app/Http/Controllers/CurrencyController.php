@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Currency;
-use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
 {
@@ -33,11 +32,9 @@ class CurrencyController extends Controller
     {
         // пусть сами имплементят это функционал
         $currency = Currency::find($id);
-        $lots = $currency->lots;
 
         return view('currency', [
             'currency' => $currency,
-            'lots' => $lots,
         ]);
     }
 }
