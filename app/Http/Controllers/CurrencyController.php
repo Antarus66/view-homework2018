@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Currency;
-use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
 {
@@ -14,6 +13,7 @@ class CurrencyController extends Controller
      */
     public function index()
     {
+        // пусть сами имплементят это функционал
         $currencies = Currency::all();
 
         return view('currency-market', [
@@ -30,12 +30,11 @@ class CurrencyController extends Controller
      */
     public function show($id)
     {
-        $currency = Currency::get($id);
-        $lots = $currency->lots();
+        // пусть сами имплементят это функционал
+        $currency = Currency::find($id);
 
         return view('currency', [
             'currency' => $currency,
-            'lots' => $lots,
         ]);
     }
 }
